@@ -109,7 +109,7 @@ const Home = ({ todoList, theme }) => {
           }}
         />
       </form>
-      <div style={{ marginTop: '20px', height: '300px', overflowY: 'scroll' }}>
+      <div style={{ marginTop: '20px', maxHeight: '300px', overflowY: 'scroll' }}>
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="todos">
             {(provided) => (
