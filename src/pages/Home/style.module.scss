@@ -110,6 +110,7 @@
     padding: 16px 4px;
     border-radius: 3px;
     z-index: 10;
+    margin-top: 20px;
     color: var(--color-subtext);
     .filterButton{
       @include directionX;

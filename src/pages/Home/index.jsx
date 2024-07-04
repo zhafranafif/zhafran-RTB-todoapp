@@ -38,6 +38,7 @@ const Home = ({ todoList, theme }) => {
   };
   const handleInputTodo = (e) => {
     e.preventDefault();
+    if (todo.length === 0) return;
     dispatch(
       addTodo({
         id: nanoid(),
@@ -69,9 +70,17 @@ const Home = ({ todoList, theme }) => {
   const onDragEnd = (result) => {
     if (!result.destination) return;
 
-    const items = Array.from(handleFilterData);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    const indexDest = result?.destination.index;
+    const idDest = handleFilterData[indexDest].id;
+    const indexSources = result?.source.index;
+    const idSource = handleFilterData[indexSources].id;
+
+    const indexSource = todoList.findIndex((item) => item.id === idSource);
+    const indexDestination = todoList.findIndex((item) => item.id === idDest);
+
+    const items = Array.from(todoList);
+    const [reorderedItem] = items.splice(indexSource, 1);
+    items.splice(indexDestination, 0, reorderedItem);
 
     dispatch(updateTodo(items));
   };
@@ -81,13 +90,13 @@ const Home = ({ todoList, theme }) => {
       <div className={classes.header}>
         <h1>TODO</h1>
         <Stack direction="row">
-          <IconButton onClick={handleTheme}>
+          <IconButton disableRipple="true" onClick={handleTheme}>
             {theme === 'light' ? <DarkModeIcon sx={iconStyle} /> : <LightModeIcon sx={iconStyle} htmlColor="#fae6be" />}
           </IconButton>
         </Stack>
       </div>
       <form onSubmit={handleInputTodo} className={classes.inputContainer}>
-        <input type="text" placeholder="Create a new todo.." onChange={handleTodo} />
+        <input type="text" placeholder="Create a new todo.." onChange={handleTodo} maxLength={75} />
         <Checkbox
           className={classes.checked}
           icon={<RadioButtonUncheckedIcon />}
@@ -100,7 +109,7 @@ const Home = ({ todoList, theme }) => {
           }}
         />
       </form>
-      <div style={{ marginTop: '20px' }}>
+      <div style={{ marginTop: '20px', height: '300px', overflowY: 'scroll' }}>
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="todos">
             {(provided) => (
