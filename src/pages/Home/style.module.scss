@@ -1,7 +1,150 @@
 @import '@styles/base';
-
-.wrapper {
-  margin: auto;
-  padding: 2rem;
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+  font-family: "Josefin Sans", sans-serif;
 }
+.wrapper {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  @include directionY;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  .wrapperImg{
+  background-image: var(--image-background-2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  }
+  .header{
+    @include directionX;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 600px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+  @include apply-at-xs1-size{
+    .header{
+      width: 300px;
+    }
+  }
+  .header h1{
+    letter-spacing: 10px;
+  }
+  .inputContainer {
+    position: absolute;
+    top: 200px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+  }
+  @include apply-at-xs1-size{
+    .inputContainer{
+      width: 300px;
+    }
+  }
+  
+  .inputContainer input {
+    background-color: var(--color-input);
+    padding: 18px;
+    border-radius: 5px;
+    border: none;
+    color: var(--color-text);
+    padding-left: 50px;
+    flex: 1;
+    font-size: 16px;
+  }
+  .inputContainer input:focus {
+    outline: none;
+  }
+  .inputContainer .checked{
+    position: absolute;
+    top: 0;
+  }
+  .todoCard{
+    @include directionX;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    background-color: var(--color-input);
+    padding: 4px;
+    border-radius: 3px;
+    border-bottom: 1px solid var(--color-border);
+    z-index: 10;
+    .todo{
+      @include directionX;
+    }
+  }
+  @include apply-at-xs1-size{
+    .todoCard{
+      width: 300px;
+      margin-top: 10px;
+    }
+  }
+  .todoCard h1{
+    margin: 0;
+  }
+  .todoCard i{
+    width: 40px;
+    color: var(--color-input);
+  }
+  .todoCard i:hover{
+    cursor: pointer;
+    color: var(--color-text);
+  }
+  
+  .filter{
+    @include directionX;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    background-color: var(--color-input);
+    padding: 16px 4px;
+    border-radius: 3px;
+    z-index: 10;
+    color: var(--color-subtext);
+    .filterButton{
+      @include directionX;
+      justify-content: center;
+      align-items: center;
+    }
+    .filterButton button{
+      background: none;
+      border: none;
+      color: var(--color-subtext);
+    }
+    .filterButton button:hover{
+      cursor: pointer;
+      color: var(--color-text)
+    }
+  }
+  @include apply-at-xs1-size{
+    .filter{
+      width: 300px;
+    }
+  }
+  .filter h6{
+    color: var(--color-subtext);
+    margin: 0;
+    margin-left: 12px;
+  }
+  .filter button{
+    background: none;
+      border: none;
+      color: var(--color-subtext);
+    margin-right: 12px;
+  }
+  .filter button:hover{
+    cursor: pointer;
+    color: var(--color-text)
+  }
+  }
+

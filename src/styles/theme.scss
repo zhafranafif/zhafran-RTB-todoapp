@@ -7,13 +7,20 @@
 @mixin light-theme {
   --color-text: #001a41;
   --color-background: linear-gradient(-45deg, #EDF1F4, #C3CBDC, #DEE4EA, #F9FCFF);
-  --color-background-2: #f5f7fa;
+  --image-background-2: url("../../public/images/bg-desktop-light.jpg");
   --color-text-gradient: -webkit-linear-gradient(45deg, #c20ea1, #dd2d7f, #ee4c5e, #f46d41);
+  --color-input: #FFFFFF;
+  --color-border: hsl(233, 11%, 84%);
+  --color-subtext: rgb(85,86,115);
+  
 }
 
 @mixin dark-theme {
   --color-text: #f4eee0;
   --color-background: linear-gradient(-45deg, #121212, #1a1a1a, #1a1625, #2f2b3a);
-  --color-background-2: #46424f;
+  --image-background-2: url("../../public/images/bg-desktop-dark.jpg");
   --color-text-gradient: -webkit-linear-gradient(45deg, #f2efdc, #f5f5f5);
+  --color-input: #25273C;
+  --color-border: hsl(234, 11%, 52%);
+  --color-subtext:rgb(164,163,167);
 }

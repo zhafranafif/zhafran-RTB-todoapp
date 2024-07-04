@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     protected: false,
     component: Home,
-    layout: MainLayout,
+    // layout: MainLayout,
   },
 
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },

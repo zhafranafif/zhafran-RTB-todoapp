@@ -13,6 +13,11 @@ $screen-1024-limit: 1024px;
     @content;
   }
 }
+@mixin apply-at-xs1-size {
+  @media (max-width: $screen-sm-limit){
+    @content;
+  }
+}
 
 @mixin apply-at-xs2-size {
   @media (min-width: $screen-xs2-limit) and (min-height: $screen-height-limit) {
